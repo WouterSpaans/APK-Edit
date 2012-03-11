@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_20DB72B26A994F1A88E78188E8404BC5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_69345C95524E7E1B73F007F7C3520A86"
         "OwnerKey" = "8:_FEA926BC5B775606107CFAEDF162A878"
         "MsmSig" = "8:_UNDEFINED"
@@ -171,6 +177,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_20DB72B26A994F1A88E78188E8404BC5"
+            {
+            "SourcePath" = "8:..\\APK Edit\\Android.ico"
+            "TargetName" = "8:Android.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_A5AA208578524FABB8CCBCD94CBEED81"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_69345C95524E7E1B73F007F7C3520A86"
             {
             "AssemblyRegister" = "3:1"
@@ -298,6 +324,29 @@
         }
         "FileType"
         {
+            "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_9F39AE9767904F9E8D6E389BDC6BE10E"
+            {
+            "Name" = "8:APK File"
+            "Description" = "8:Android Package File"
+            "Extensions" = "8:.apk"
+            "MIME" = "8:"
+            "Icon" = "8:_20DB72B26A994F1A88E78188E8404BC5"
+            "IconIndex" = "3:0"
+                "Command"
+                {
+                "Command" = "8:_8CCCBE0339F6455BA759A90DB8BBA385"
+                }
+                "Verbs"
+                {
+                    "{95C0C507-CBF0-42B8-B119-07219E384A4A}:_1085D7A07E4D4367AD70FFCCBDEAB4E9"
+                    {
+                    "Command" = "8:&Edit"
+                    "Verb" = "8:edit"
+                    "Arguments" = "8:\"%1\""
+                    "Order" = "3:0"
+                    }
+                }
+            }
         }
         "Folder"
         {
@@ -367,7 +416,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:APK Edit"
         "ProductCode" = "8:{A64134A3-EC70-4984-8F36-3C3860F0F8BA}"
-        "PackageCode" = "8:{5D3CF843-7591-4F71-8775-E73407A12BB0}"
+        "PackageCode" = "8:{1A5E7780-94FF-4C54-996C-FFDA6F7E9349}"
         "UpgradeCode" = "8:{E4027CB5-2AD2-4FB3-8D26-859496A7061B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
