@@ -52,12 +52,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BBF811C7A3B455DF082B6915F1F8BACB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8CCCBE0339F6455BA759A90DB8BBA385"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -79,6 +73,12 @@
         "OwnerKey" = "8:_69345C95524E7E1B73F007F7C3520A86"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BBF811C7A3B455DF082B6915F1F8BACB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -97,6 +97,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -113,6 +134,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -309,9 +338,24 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_096E5F5B7473447CAFBCC73469AD83B8"
+            {
+            "Name" = "8:Java"
+            "Condition" = "8:JAVAVERSION>=\"1.6\""
+            "Message" = "8:Java 1.6 or higher is required for this program. Do you want to download it now?"
+            "InstallUrl" = "8:http://javadl.sun.com/webapps/download/AutoDL?BundleId=58124"
+            }
         }
         "Locator"
         {
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_4D29848710B24F60B9140D1ED38AFE08"
+            {
+            "Name" = "8:Search for Java"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\JavaSoft\\Java Runtime Environment"
+            "Value" = "8:CurrentVersion"
+            "Property" = "8:JAVAVERSION"
+            }
         }
         "MsiBootstrapper"
         {
@@ -323,7 +367,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:APK Edit"
         "ProductCode" = "8:{A64134A3-EC70-4984-8F36-3C3860F0F8BA}"
-        "PackageCode" = "8:{1303F806-C761-43AE-8301-E3AD459B4E67}"
+        "PackageCode" = "8:{5D3CF843-7591-4F71-8775-E73407A12BB0}"
         "UpgradeCode" = "8:{E4027CB5-2AD2-4FB3-8D26-859496A7061B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
