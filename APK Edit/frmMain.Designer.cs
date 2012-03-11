@@ -1,0 +1,234 @@
+﻿namespace APK_Edit
+{
+    partial class frmMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelIcons = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.tabPageDetails = new System.Windows.Forms.TabPage();
+            this.openFileDialogIcon = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHDPI = new System.Windows.Forms.PictureBox();
+            this.openFileDialogFramework = new System.Windows.Forms.OpenFileDialog();
+            this.tabControlMain.SuspendLayout();
+            this.tabPageGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnApply
+            // 
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.Enabled = false;
+            this.btnApply.Location = new System.Drawing.Point(279, 447);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 20;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Location = new System.Drawing.Point(198, 447);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 19;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Enabled = false;
+            this.btnOK.Location = new System.Drawing.Point(117, 447);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 17;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // tabControlMain
+            // 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlMain.Controls.Add(this.tabPageGeneral);
+            this.tabControlMain.Controls.Add(this.tabPageDetails);
+            this.tabControlMain.Location = new System.Drawing.Point(7, 7);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(347, 434);
+            this.tabControlMain.TabIndex = 21;
+            // 
+            // tabPageGeneral
+            // 
+            this.tabPageGeneral.Controls.Add(this.pictureBoxStatus);
+            this.tabPageGeneral.Controls.Add(this.labelStatus);
+            this.tabPageGeneral.Controls.Add(this.pictureBoxHDPI);
+            this.tabPageGeneral.Controls.Add(this.textBoxName);
+            this.tabPageGeneral.Controls.Add(this.labelIcons);
+            this.tabPageGeneral.Controls.Add(this.labelName);
+            this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGeneral.Name = "tabPageGeneral";
+            this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGeneral.Size = new System.Drawing.Size(339, 408);
+            this.tabPageGeneral.TabIndex = 0;
+            this.tabPageGeneral.Text = "General";
+            this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.Location = new System.Drawing.Point(2, 250);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(335, 13);
+            this.labelStatus.TabIndex = 24;
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxName.Enabled = false;
+            this.textBoxName.Location = new System.Drawing.Point(50, 6);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(275, 20);
+            this.textBoxName.TabIndex = 22;
+            // 
+            // labelIcons
+            // 
+            this.labelIcons.AutoSize = true;
+            this.labelIcons.Location = new System.Drawing.Point(6, 32);
+            this.labelIcons.Name = "labelIcons";
+            this.labelIcons.Size = new System.Drawing.Size(36, 13);
+            this.labelIcons.TabIndex = 1;
+            this.labelIcons.Text = "Icons:";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(6, 8);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(38, 13);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "Name:";
+            // 
+            // tabPageDetails
+            // 
+            this.tabPageDetails.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDetails.Name = "tabPageDetails";
+            this.tabPageDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDetails.Size = new System.Drawing.Size(339, 408);
+            this.tabPageDetails.TabIndex = 1;
+            this.tabPageDetails.Text = "Details";
+            this.tabPageDetails.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialogIcon
+            // 
+            this.openFileDialogIcon.Filter = "Android icon files|*.png";
+            this.openFileDialogIcon.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogIcon_FileOk);
+            // 
+            // pictureBoxStatus
+            // 
+            this.pictureBoxStatus.Location = new System.Drawing.Point(131, 166);
+            this.pictureBoxStatus.Name = "pictureBoxStatus";
+            this.pictureBoxStatus.Size = new System.Drawing.Size(76, 76);
+            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxStatus.TabIndex = 25;
+            this.pictureBoxStatus.TabStop = false;
+            // 
+            // pictureBoxHDPI
+            // 
+            this.pictureBoxHDPI.Location = new System.Drawing.Point(50, 32);
+            this.pictureBoxHDPI.Name = "pictureBoxHDPI";
+            this.pictureBoxHDPI.Size = new System.Drawing.Size(76, 76);
+            this.pictureBoxHDPI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHDPI.TabIndex = 23;
+            this.pictureBoxHDPI.TabStop = false;
+            this.pictureBoxHDPI.Click += new System.EventHandler(this.pictureBoxHDPI_Click);
+            // 
+            // openFileDialogFramework
+            // 
+            this.openFileDialogFramework.FileName = "Framework.apk";
+            this.openFileDialogFramework.Filter = "Android framework files|*.apk";
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(361, 477);
+            this.Controls.Add(this.tabControlMain);
+            this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(377, 515);
+            this.MinimumSize = new System.Drawing.Size(377, 515);
+            this.Name = "frmMain";
+            this.Text = "APK Edit 0.5";
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.tabControlMain.ResumeLayout(false);
+            this.tabPageGeneral.ResumeLayout(false);
+            this.tabPageGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabPageGeneral;
+        private System.Windows.Forms.TabPage tabPageDetails;
+        private System.Windows.Forms.Label labelIcons;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.PictureBox pictureBoxHDPI;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.PictureBox pictureBoxStatus;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.OpenFileDialog openFileDialogIcon;
+        private System.Windows.Forms.OpenFileDialog openFileDialogFramework;
+    }
+}
