@@ -38,6 +38,7 @@ namespace APK_Edit
                 this.apkFile.Decompile();
 
                 textBoxName.Text = this.apkFile.ApplicationName;
+                labelApkToolVersion.Text = Wrappers.Apktool.Version;
             }
             catch (Exception ex)
             {

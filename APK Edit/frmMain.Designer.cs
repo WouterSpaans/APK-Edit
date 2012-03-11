@@ -34,19 +34,22 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
             this.labelStatus = new System.Windows.Forms.Label();
+            this.pictureBoxHDPI = new System.Windows.Forms.PictureBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelIcons = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageDetails = new System.Windows.Forms.TabPage();
             this.openFileDialogIcon = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
-            this.pictureBoxHDPI = new System.Windows.Forms.PictureBox();
             this.openFileDialogFramework = new System.Windows.Forms.OpenFileDialog();
+            this.labelApkToolVersionLabel = new System.Windows.Forms.Label();
+            this.labelApkToolVersion = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).BeginInit();
+            this.tabPageDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
@@ -115,6 +118,15 @@
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxStatus
+            // 
+            this.pictureBoxStatus.Location = new System.Drawing.Point(131, 166);
+            this.pictureBoxStatus.Name = "pictureBoxStatus";
+            this.pictureBoxStatus.Size = new System.Drawing.Size(76, 76);
+            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxStatus.TabIndex = 25;
+            this.pictureBoxStatus.TabStop = false;
+            // 
             // labelStatus
             // 
             this.labelStatus.Location = new System.Drawing.Point(2, 250);
@@ -122,6 +134,16 @@
             this.labelStatus.Size = new System.Drawing.Size(335, 13);
             this.labelStatus.TabIndex = 24;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBoxHDPI
+            // 
+            this.pictureBoxHDPI.Location = new System.Drawing.Point(50, 32);
+            this.pictureBoxHDPI.Name = "pictureBoxHDPI";
+            this.pictureBoxHDPI.Size = new System.Drawing.Size(76, 76);
+            this.pictureBoxHDPI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHDPI.TabIndex = 23;
+            this.pictureBoxHDPI.TabStop = false;
+            this.pictureBoxHDPI.Click += new System.EventHandler(this.pictureBoxHDPI_Click);
             // 
             // textBoxName
             // 
@@ -153,6 +175,8 @@
             // 
             // tabPageDetails
             // 
+            this.tabPageDetails.Controls.Add(this.labelApkToolVersion);
+            this.tabPageDetails.Controls.Add(this.labelApkToolVersionLabel);
             this.tabPageDetails.Location = new System.Drawing.Point(4, 22);
             this.tabPageDetails.Name = "tabPageDetails";
             this.tabPageDetails.Padding = new System.Windows.Forms.Padding(3);
@@ -166,29 +190,28 @@
             this.openFileDialogIcon.Filter = "Android icon files|*.png";
             this.openFileDialogIcon.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogIcon_FileOk);
             // 
-            // pictureBoxStatus
-            // 
-            this.pictureBoxStatus.Location = new System.Drawing.Point(131, 166);
-            this.pictureBoxStatus.Name = "pictureBoxStatus";
-            this.pictureBoxStatus.Size = new System.Drawing.Size(76, 76);
-            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxStatus.TabIndex = 25;
-            this.pictureBoxStatus.TabStop = false;
-            // 
-            // pictureBoxHDPI
-            // 
-            this.pictureBoxHDPI.Location = new System.Drawing.Point(50, 32);
-            this.pictureBoxHDPI.Name = "pictureBoxHDPI";
-            this.pictureBoxHDPI.Size = new System.Drawing.Size(76, 76);
-            this.pictureBoxHDPI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxHDPI.TabIndex = 23;
-            this.pictureBoxHDPI.TabStop = false;
-            this.pictureBoxHDPI.Click += new System.EventHandler(this.pictureBoxHDPI_Click);
-            // 
             // openFileDialogFramework
             // 
             this.openFileDialogFramework.FileName = "Framework.apk";
             this.openFileDialogFramework.Filter = "Android framework files|*.apk";
+            // 
+            // labelApkToolVersionLabel
+            // 
+            this.labelApkToolVersionLabel.AutoSize = true;
+            this.labelApkToolVersionLabel.Location = new System.Drawing.Point(7, 7);
+            this.labelApkToolVersionLabel.Name = "labelApkToolVersionLabel";
+            this.labelApkToolVersionLabel.Size = new System.Drawing.Size(90, 13);
+            this.labelApkToolVersionLabel.TabIndex = 0;
+            this.labelApkToolVersionLabel.Text = "Apk Tool version:";
+            // 
+            // labelApkToolVersion
+            // 
+            this.labelApkToolVersion.AutoSize = true;
+            this.labelApkToolVersion.Enabled = false;
+            this.labelApkToolVersion.Location = new System.Drawing.Point(103, 7);
+            this.labelApkToolVersion.Name = "labelApkToolVersion";
+            this.labelApkToolVersion.Size = new System.Drawing.Size(0, 13);
+            this.labelApkToolVersion.TabIndex = 1;
             // 
             // frmMain
             // 
@@ -210,6 +233,8 @@
             this.tabPageGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).EndInit();
+            this.tabPageDetails.ResumeLayout(false);
+            this.tabPageDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -230,5 +255,7 @@
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.OpenFileDialog openFileDialogIcon;
         private System.Windows.Forms.OpenFileDialog openFileDialogFramework;
+        private System.Windows.Forms.Label labelApkToolVersion;
+        private System.Windows.Forms.Label labelApkToolVersionLabel;
     }
 }
