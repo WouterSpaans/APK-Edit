@@ -1,101 +1,121 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Win32;
-using System.Net;
-using System.Diagnostics;
-using System.IO;
-
-namespace Wrappers
+﻿namespace Wrappers
 {
-    public static partial class Java
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Net;
+
+    using Microsoft.Win32;
+
+    public static class Java
     {
+        const string JavaKey32 = "SOFTWARE\\JavaSoft\\Java Runtime Environment";
+        const string JavaKey64 = "SOFTWARE\\Wow6432Node\\JavaSoft\\Java Runtime Environment";
+
+        const string Url64Bit = "http://javadl.sun.com/webapps/download/AutoDL?BundleId=58126";
+        const string Url32Bit = "http://javadl.sun.com/webapps/download/AutoDL?BundleId=58124";
+
+        const string FileName64Bit = "jre-6u30-windows-x64.exe";
+        const string FileName32Bit = "jre-6u30-windows-i586-s.exe";
+
         public static bool Installed
         {
-            get { return (Executable != null); }
+            get { return Executable != null; }
         }
 
         public static FileInfo Executable
         {
             get
             {
-                DirectoryInfo installDirectory = InstallDirectory;
+                var installDirectory = InstallDirectory;
                 if (installDirectory != null)
                 {
-                    string fileName = installDirectory.FullName + @"\bin\java.exe";
-                    FileInfo returnValue = new FileInfo(fileName);
+                    var fileName = installDirectory.FullName + @"\bin\java.exe";
+                    var returnValue = new FileInfo(fileName);
                     if (returnValue.Exists)
                     {
                         return returnValue;
                     }
                 }
+
                 return null;
             }
         }
+
         public static DirectoryInfo InstallDirectory
         {
             get
             {
-                DirectoryInfo returnValue = null;
-                String javaKey32 = "SOFTWARE\\JavaSoft\\Java Runtime Environment";
-                String javaKey64 = "SOFTWARE\\Wow6432Node\\JavaSoft\\Java Runtime Environment";
 
-                bool javaKey32Found = false;
-                bool javaKey64Found = false;
+                bool javaKey32Found;
+                bool javaKey64Found;
 
-                using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(javaKey32))
+                using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(JavaKey32))
                 {
-                    javaKey32Found = (baseKey != null);
+                    javaKey32Found = baseKey != null;
                 }
-                using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(javaKey64))
+
+                using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(JavaKey64))
                 {
-                    javaKey64Found = (baseKey != null);
+                    javaKey64Found = baseKey != null;
                 }
 
                 if (javaKey32Found || javaKey64Found)
                 {
-                    using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(javaKey32Found ? javaKey32 : javaKey64))
+                    using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(javaKey32Found ? JavaKey32 : JavaKey64))
                     {
                         if (baseKey != null)
                         {
-                            String currentVersion = baseKey.GetValue("CurrentVersion").ToString();
-                            using (var homeKey = baseKey.OpenSubKey(currentVersion))
-                                returnValue = new DirectoryInfo(homeKey.GetValue("JavaHome").ToString());
+                            using (var homeKey = baseKey.OpenSubKey(baseKey.GetValue("CurrentVersion").ToString()))
+                            {
+                                if (homeKey != null)
+                                {
+                                    string javaHome = homeKey.GetValue("JavaHome").ToString();
+                                    if (!string.IsNullOrEmpty(javaHome))
+                                    {
+                                        var javaHomeDirectoryInfo = new DirectoryInfo(javaHome);
+                                        if (javaHomeDirectoryInfo.Exists)
+                                        {
+                                            return javaHomeDirectoryInfo;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                return returnValue;
+
+                return null;
             }
         }
 
         public static void Install()
         {
-            string url = (Environment.Is64BitProcess) ?
-                "http://javadl.sun.com/webapps/download/AutoDL?BundleId=58126" :
-                "http://javadl.sun.com/webapps/download/AutoDL?BundleId=58124";
-            string filename = (Environment.Is64BitProcess) ?
-                "jre-6u30-windows-x64.exe" :
-                "jre-6u30-windows-i586-s.exe";
+            string url = Environment.Is64BitProcess ? Url64Bit : Url32Bit;
+            string filename = Environment.Is64BitProcess ? FileName64Bit : FileName32Bit;
 
-            WebClient client = new WebClient();
+            var client = new WebClient();
             client.DownloadFile(url, filename);
 
             // Install with option [/s]
-            string result;
-            ProcessStartInfo start = new ProcessStartInfo()
-            {
-                FileName = filename,
-                Arguments = "/s",
-                UseShellExecute = false,
-                RedirectStandardOutput = true
-            };
+            var start = new ProcessStartInfo
+                {
+                    FileName = filename,
+                    Arguments = "/s",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true
+                };
 
             using (Process process = Process.Start(start))
-            using (StreamReader reader = process.StandardOutput)
-                result = reader.ReadToEnd();
+            {
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    reader.ReadToEnd();
+                }
+            }
 
-            //Cleanup downloaded file
-            FileInfo javaDownload = new FileInfo(filename);
+            // Cleanup downloaded file
+            var javaDownload = new FileInfo(filename);
             if (javaDownload.Exists)
             {
                 if (WaitForFile(javaDownload.FullName))
@@ -107,12 +127,10 @@ namespace Wrappers
 
         public static void UnInstall()
         {
-            string result = string.Empty;
-            ProcessStartInfo start = new ProcessStartInfo()
+            var start = new ProcessStartInfo()
             {
                 FileName = "MsiExec.exe",
                 Arguments = "/X {26A24AE4-039D-4CA4-87B4-2F86416030FF} /QUIET",
-
                 UseShellExecute = false,
                 RedirectStandardOutput = true
             };
@@ -120,10 +138,12 @@ namespace Wrappers
             using (Process process = Process.Start(start))
             {
                 using (StreamReader reader = process.StandardOutput)
-                    result = reader.ReadToEnd();
+                {
+                    reader.ReadToEnd();
+                }
             }
         }
-        
+
         /// <summary> 
         /// Blocks until the file is not locked any more. 
         /// </summary> 
@@ -147,7 +167,7 @@ namespace Wrappers
                         break;
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     //Log.LogWarning(
                     //   "WaitForFile {0} failed to get an exclusive lock: {1}",
@@ -171,6 +191,6 @@ namespace Wrappers
             return true;
         }
 
-        
+
     }
 }

@@ -147,6 +147,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -416,7 +429,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:APK Edit"
         "ProductCode" = "8:{A64134A3-EC70-4984-8F36-3C3860F0F8BA}"
-        "PackageCode" = "8:{1A5E7780-94FF-4C54-996C-FFDA6F7E9349}"
+        "PackageCode" = "8:{BD8713C7-C7EB-4658-A5E0-7C21F0270E71}"
         "UpgradeCode" = "8:{E4027CB5-2AD2-4FB3-8D26-859496A7061B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

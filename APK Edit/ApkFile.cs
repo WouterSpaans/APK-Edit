@@ -19,10 +19,9 @@
     {
         #region Constants and Fields
 
-        private const string TempPath = @"c:\test";
-        private const string ManifestFileName = TempPath + @"\AndroidManifest.xml";
-        private const string ApkToolYmlFileName = TempPath + @"\apktool.yml";
-        private const string StringsFileName = TempPath + @"\res\values\strings.xml";
+        private static readonly string ManifestFileName = TempPath + @"\AndroidManifest.xml";
+        private static readonly string ApkToolYmlFileName = TempPath + @"\apktool.yml";
+        private static readonly string StringsFileName = TempPath + @"\res\values\strings.xml";
 
         private readonly FileInfo fileInfo;
         private readonly Aapt.DumpResult aaptDump;
@@ -40,10 +39,23 @@
 
         public ApkFile()
         {
-            EnsureJava();
             this.fileInfo = OpenFile();
             this.aaptDump = Aapt.Dump(this.fileInfo);
             this.iconPath = TempPath + @"\" + this.aaptDump.application.icon.Replace('/', '\\');
+        }
+
+        ~ApkFile()
+        {
+            var di = new DirectoryInfo(TempPath);
+
+            try
+            {
+                di.Delete(true);
+            }
+            catch (IOException exception)
+            {
+                // TODO - Files in use, implement delete after reboot action
+            }
         }
 
         #endregion
@@ -85,6 +97,27 @@
         #endregion
 
         #region Public Properties
+
+        private static string tempPath;
+        public static string TempPath
+        {
+            get
+            {
+                if (tempPath == null)
+                {
+                    var di = new DirectoryInfo(Path.GetTempPath() + Path.GetRandomFileName());
+                    if (di.Exists)
+                    {
+                        di.Delete(true);
+                    }
+
+                    di.Create();
+                    tempPath = di.FullName;
+                }
+
+                return tempPath;
+            }
+        }
 
         public string ApplicationName
         {
@@ -132,6 +165,7 @@
             }
         }
 
+       
         #endregion
 
         #region Public Methods and Operators
@@ -275,24 +309,6 @@
         {
             var icon = new FileInfo(fileName);
             return icon.Exists ? Image.FromStream(new MemoryStream(File.ReadAllBytes(icon.FullName))) : null;
-        }
-
-        private static void EnsureJava()
-        {
-            if (Java.Installed)
-            {
-                return;
-            }
-
-            using (var frmJavaNotFound = new frmJavaNotFound())
-            {
-                frmJavaNotFound.ShowDialog();
-            }
-
-            if (!Java.Installed)
-            {
-                throw new FileNotFoundException("Java.exe not found");
-            }
         }
 
         private static FileInfo OpenFile()
