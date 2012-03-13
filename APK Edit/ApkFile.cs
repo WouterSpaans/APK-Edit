@@ -19,6 +19,7 @@
     {
         #region Constants and Fields
 
+        
         private static readonly string ManifestFileName = TempPath + @"\AndroidManifest.xml";
         private static readonly string ApkToolYmlFileName = TempPath + @"\apktool.yml";
         private static readonly string StringsFileName = TempPath + @"\res\values\strings.xml";
@@ -26,6 +27,13 @@
         private readonly FileInfo fileInfo;
         private readonly Aapt.DumpResult aaptDump;
         private readonly string iconPath;
+
+        private static string tempPath;
+
+        private bool enableSigning = true;
+        private bool createSeperateSignedApk = true;
+        private bool enableBackup = true;
+        private bool overWriteBackup = true;
         private string applicationName;
         private bool applicationNameInStringsXml;
         private string applicationNameAttribute;
@@ -42,19 +50,21 @@
             this.fileInfo = OpenFile();
             this.aaptDump = Aapt.Dump(this.fileInfo);
             this.iconPath = TempPath + @"\" + this.aaptDump.application.icon.Replace('/', '\\');
+            
+            
         }
 
         ~ApkFile()
         {
-            var di = new DirectoryInfo(TempPath);
+            var path = new DirectoryInfo(TempPath);
 
             try
             {
-                di.Delete(true);
+                path.Delete(true);
             }
-            catch (IOException exception)
+            catch (IOException)
             {
-                // TODO - Files in use, implement delete after reboot action
+                // TODO - Handle IOException exception (Files in use, delete after reboot action)
             }
         }
 
@@ -98,7 +108,6 @@
 
         #region Public Properties
 
-        private static string tempPath;
         public static string TempPath
         {
             get
@@ -165,7 +174,56 @@
             }
         }
 
-       
+        public bool EnableSigning
+        {
+            get
+            {
+                return this.enableSigning;
+            }
+
+            set
+            {
+                this.enableSigning = value;
+            }
+        }
+
+        public bool CreateSeperateSignedApk
+        {
+            get
+            {
+                return this.createSeperateSignedApk;
+            }
+            
+            set
+            {
+                this.createSeperateSignedApk = value;
+            }
+        }
+
+        public bool EnableBackup
+        {
+            get
+            {
+                return enableBackup;
+            }
+            set
+            {
+                enableBackup = value;
+            }
+        }
+
+        public bool OverWriteBackup
+        {
+            get
+            {
+                return overWriteBackup;
+            }
+            set
+            {
+                overWriteBackup = value;
+            }
+        }
+
         #endregion
 
         #region Public Methods and Operators
@@ -271,12 +329,35 @@
                 this.Compiling();
             }
 
+            // Backup file if needed
+            if (this.enableBackup)
+            {
+                var backupFile = new FileInfo(this.fileInfo.FullName + ".backup");
+
+                if (backupFile.Exists)
+                {
+                    if (this.overWriteBackup)
+                    {
+                        backupFile.Delete();
+                        this.fileInfo.CopyTo(backupFile.FullName);
+                    }
+                }
+                else
+                {
+                    this.fileInfo.CopyTo(backupFile.FullName);
+                }
+            }
+
             var compile = new BackgroundWorker();
             compile.DoWork += (sender, args) =>
                 {
                     var result = Apktool.Build(new DirectoryInfo(TempPath), this.fileInfo);
                     Trace.TraceInformation(result.Error);
                     Trace.TraceInformation(result.Output);
+                    if (this.enableSigning)
+                    {
+                        Signapk.Sign(this.fileInfo, !this.createSeperateSignedApk);
+                    }
                 };
 
             compile.RunWorkerCompleted += (sender, args) =>

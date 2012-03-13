@@ -41,10 +41,11 @@
             this.labelIcons = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageDetails = new System.Windows.Forms.TabPage();
+            this.labelApkToolVersion = new System.Windows.Forms.Label();
+            this.labelApkToolVersionLabel = new System.Windows.Forms.Label();
             this.openFileDialogIcon = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogFramework = new System.Windows.Forms.OpenFileDialog();
-            this.labelApkToolVersionLabel = new System.Windows.Forms.Label();
-            this.labelApkToolVersion = new System.Windows.Forms.Label();
+            this.linkLabelBrowse = new System.Windows.Forms.LinkLabel();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
@@ -104,6 +105,7 @@
             // 
             // tabPageGeneral
             // 
+            this.tabPageGeneral.Controls.Add(this.linkLabelBrowse);
             this.tabPageGeneral.Controls.Add(this.pictureBoxStatus);
             this.tabPageGeneral.Controls.Add(this.labelStatus);
             this.tabPageGeneral.Controls.Add(this.pictureBoxHDPI);
@@ -185,15 +187,14 @@
             this.tabPageDetails.Text = "Details";
             this.tabPageDetails.UseVisualStyleBackColor = true;
             // 
-            // openFileDialogIcon
+            // labelApkToolVersion
             // 
-            this.openFileDialogIcon.Filter = "Android icon files|*.png";
-            this.openFileDialogIcon.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogIcon_FileOk);
-            // 
-            // openFileDialogFramework
-            // 
-            this.openFileDialogFramework.FileName = "Framework.apk";
-            this.openFileDialogFramework.Filter = "Android framework files|*.apk";
+            this.labelApkToolVersion.AutoSize = true;
+            this.labelApkToolVersion.Enabled = false;
+            this.labelApkToolVersion.Location = new System.Drawing.Point(103, 7);
+            this.labelApkToolVersion.Name = "labelApkToolVersion";
+            this.labelApkToolVersion.Size = new System.Drawing.Size(0, 13);
+            this.labelApkToolVersion.TabIndex = 1;
             // 
             // labelApkToolVersionLabel
             // 
@@ -204,14 +205,31 @@
             this.labelApkToolVersionLabel.TabIndex = 0;
             this.labelApkToolVersionLabel.Text = "Apk Tool version:";
             // 
-            // labelApkToolVersion
+            // openFileDialogIcon
             // 
-            this.labelApkToolVersion.AutoSize = true;
-            this.labelApkToolVersion.Enabled = false;
-            this.labelApkToolVersion.Location = new System.Drawing.Point(103, 7);
-            this.labelApkToolVersion.Name = "labelApkToolVersion";
-            this.labelApkToolVersion.Size = new System.Drawing.Size(0, 13);
-            this.labelApkToolVersion.TabIndex = 1;
+            this.openFileDialogIcon.Filter = "Android icon files|*.png";
+            // 
+            // openFileDialogFramework
+            // 
+            this.openFileDialogFramework.FileName = "Framework.apk";
+            this.openFileDialogFramework.Filter = "Android framework files|*.apk";
+            // 
+            // linkLabelBrowse
+            // 
+            this.linkLabelBrowse.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.linkLabelBrowse.AutoSize = true;
+            this.linkLabelBrowse.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.linkLabelBrowse.Enabled = false;
+            this.linkLabelBrowse.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkLabelBrowse.LinkArea = new System.Windows.Forms.LinkArea(0, 6);
+            this.linkLabelBrowse.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.linkLabelBrowse.Location = new System.Drawing.Point(282, 381);
+            this.linkLabelBrowse.Name = "linkLabelBrowse";
+            this.linkLabelBrowse.Size = new System.Drawing.Size(42, 13);
+            this.linkLabelBrowse.TabIndex = 22;
+            this.linkLabelBrowse.TabStop = true;
+            this.linkLabelBrowse.Text = "Browse";
+            this.linkLabelBrowse.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBrowse_LinkClicked);
             // 
             // frmMain
             // 
@@ -257,5 +275,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogFramework;
         private System.Windows.Forms.Label labelApkToolVersion;
         private System.Windows.Forms.Label labelApkToolVersionLabel;
+        private System.Windows.Forms.LinkLabel linkLabelBrowse;
     }
 }

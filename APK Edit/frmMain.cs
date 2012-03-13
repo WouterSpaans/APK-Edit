@@ -30,6 +30,11 @@ namespace APK_Edit
             try
             {
                 this.apkFile = new ApkFile();
+                this.apkFile.EnableBackup = true;
+                this.apkFile.OverWriteBackup = true;
+                this.apkFile.EnableSigning = true;
+                this.apkFile.CreateSeperateSignedApk = false;
+                
                 this.apkFile.Decompiling += this.Decompiling;
                 this.apkFile.Decompiled += this.Decompiled;
                 this.apkFile.FrameworkMissing += this.FrameworkMissing;
@@ -69,9 +74,9 @@ namespace APK_Edit
             pictureBoxStatus.Image = Properties.Resources.FileWarning_128;
             if (openFileDialogFramework.ShowDialog() == DialogResult.OK)
             {
-                apkFile.FrameworkInstalling += this.FrameworkInstalling;
-                apkFile.FrameworkInstalled += this.FrameworkInstalled;
-                apkFile.InstallFramework(openFileDialogFramework.FileName);
+                this.apkFile.FrameworkInstalling += this.FrameworkInstalling;
+                this.apkFile.FrameworkInstalled += this.FrameworkInstalled;
+                this.apkFile.InstallFramework(this.openFileDialogFramework.FileName);
             }
             else
             {
@@ -79,15 +84,15 @@ namespace APK_Edit
             }
         }
 
-        void FrameworkInstalling()
+        private void FrameworkInstalling()
         {
             labelStatus.Text = "Installing framework.";
             pictureBoxStatus.Image = Properties.Resources.Loading_64;
         }
 
-        void FrameworkInstalled()
+        private void FrameworkInstalled()
         {
-            apkFile.Decompile();
+            this.apkFile.Decompile();
         }
 
         private void Compiling()
@@ -121,6 +126,8 @@ namespace APK_Edit
             textBoxName.Enabled = true;
             pictureBoxHDPI.Enabled = true;
             labelStatus.Enabled = true;
+            linkLabelBrowse.Enabled = true;
+            linkLabelBrowse.Visible = true;
         }
 
         private void DisableUI()
@@ -131,6 +138,8 @@ namespace APK_Edit
             textBoxName.Enabled = false;
             pictureBoxHDPI.Enabled = false;
             labelStatus.Enabled = false;
+            linkLabelBrowse.Enabled = false;
+            linkLabelBrowse.Visible = false;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -155,13 +164,13 @@ namespace APK_Edit
         {
             if (openFileDialogIcon.ShowDialog() == DialogResult.OK)
             {
-                pictureBoxHDPI.Image = apkFile.SetIcon(openFileDialogIcon.FileName);
+                this.pictureBoxHDPI.Image = this.apkFile.SetIcon(this.openFileDialogIcon.FileName);
             }
         }
 
-        private void openFileDialogIcon_FileOk(object sender, CancelEventArgs e)
+        private void linkLabelBrowse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("explorer.exe", ApkFile.TempPath);
         }
     }
 }
