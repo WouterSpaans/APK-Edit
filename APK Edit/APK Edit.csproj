@@ -50,16 +50,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApkFile.cs" />
+    <Compile Include="AppSettings.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,6 +98,7 @@
   <ItemGroup>
     <Content Include="Android.ico" />
     <Content Include="Resources\Android.ico" />
+    <None Include="Resources\Setting_32.png" />
     <None Include="Resources\FileWarning_128.png" />
   </ItemGroup>
   <ItemGroup>

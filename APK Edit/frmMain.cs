@@ -30,10 +30,10 @@ namespace APK_Edit
             try
             {
                 this.apkFile = new ApkFile();
-                this.apkFile.EnableBackup = true;
-                this.apkFile.OverWriteBackup = true;
-                this.apkFile.EnableSigning = true;
-                this.apkFile.CreateSeperateSignedApk = false;
+                this.apkFile.EnableBackup = AppSettings.EnableBackup;
+                this.apkFile.OverWriteBackup = AppSettings.OverWriteBackup;
+                this.apkFile.EnableSigning = AppSettings.EnableSigning;
+                this.apkFile.CreateSeperateSigningFile = AppSettings.CreateSeperateSigningFile;
                 
                 this.apkFile.Decompiling += this.Decompiling;
                 this.apkFile.Decompiled += this.Decompiled;
@@ -128,10 +128,12 @@ namespace APK_Edit
             labelStatus.Enabled = true;
             linkLabelBrowse.Enabled = true;
             linkLabelBrowse.Visible = true;
+            
         }
 
         private void DisableUI()
         {
+            tabControlMain.SelectTab(0);
             btnOK.Enabled = false;
             btnCancel.Enabled = false;
             btnApply.Enabled = false;
@@ -171,6 +173,18 @@ namespace APK_Edit
         private void linkLabelBrowse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("explorer.exe", ApkFile.TempPath);
+        }
+
+        private void pictureBoxSettings_Click(object sender, EventArgs e)
+        {
+            frmOptions frm = new frmOptions();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.apkFile.EnableBackup = AppSettings.EnableBackup;
+                this.apkFile.OverWriteBackup = AppSettings.OverWriteBackup;
+                this.apkFile.EnableSigning = AppSettings.EnableSigning;
+                this.apkFile.CreateSeperateSigningFile = AppSettings.CreateSeperateSigningFile;
+            }
         }
     }
 }

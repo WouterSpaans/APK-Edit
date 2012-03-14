@@ -28,6 +28,12 @@
         "Entry"
         {
         "MsmKey" = "8:_69345C95524E7E1B73F007F7C3520A86"
+        "OwnerKey" = "8:_F89E94B73B5AC265A1D7251AE6DA2A62"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_69345C95524E7E1B73F007F7C3520A86"
         "OwnerKey" = "8:_8CCCBE0339F6455BA759A90DB8BBA385"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -429,7 +435,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:APK Edit"
         "ProductCode" = "8:{A64134A3-EC70-4984-8F36-3C3860F0F8BA}"
-        "PackageCode" = "8:{BD8713C7-C7EB-4658-A5E0-7C21F0270E71}"
+        "PackageCode" = "8:{93603E71-9BCC-4F5D-A8DC-16671B4BD700}"
         "UpgradeCode" = "8:{E4027CB5-2AD2-4FB3-8D26-859496A7061B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

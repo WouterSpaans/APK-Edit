@@ -31,7 +31,7 @@
         private static string tempPath;
 
         private bool enableSigning = true;
-        private bool createSeperateSignedApk = true;
+        private bool createSeperateSigningFile = true;
         private bool enableBackup = true;
         private bool overWriteBackup = true;
         private string applicationName;
@@ -187,16 +187,16 @@
             }
         }
 
-        public bool CreateSeperateSignedApk
+        public bool CreateSeperateSigningFile
         {
             get
             {
-                return this.createSeperateSignedApk;
+                return this.createSeperateSigningFile;
             }
             
             set
             {
-                this.createSeperateSignedApk = value;
+                this.createSeperateSigningFile = value;
             }
         }
 
@@ -356,7 +356,7 @@
                     Trace.TraceInformation(result.Output);
                     if (this.enableSigning)
                     {
-                        Signapk.Sign(this.fileInfo, !this.createSeperateSignedApk);
+                        Signapk.Sign(this.fileInfo, !this.createSeperateSigningFile);
                     }
                 };
 
