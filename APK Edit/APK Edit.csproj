@@ -98,7 +98,9 @@
   <ItemGroup>
     <Content Include="Android.ico" />
     <Content Include="Resources\Android.ico" />
-    <None Include="Resources\Setting_32.png" />
+    <None Include="Resources\Translate_16.png" />
+    <None Include="Resources\Browse_16.png" />
+    <None Include="Resources\Settings_16.png" />
     <None Include="Resources\FileWarning_128.png" />
   </ItemGroup>
   <ItemGroup>

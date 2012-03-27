@@ -34,7 +34,7 @@ namespace APK_Edit
                 this.apkFile.OverWriteBackup = AppSettings.OverWriteBackup;
                 this.apkFile.EnableSigning = AppSettings.EnableSigning;
                 this.apkFile.CreateSeperateSigningFile = AppSettings.CreateSeperateSigningFile;
-                
+
                 this.apkFile.Decompiling += this.Decompiling;
                 this.apkFile.Decompiled += this.Decompiled;
                 this.apkFile.FrameworkMissing += this.FrameworkMissing;
@@ -126,9 +126,10 @@ namespace APK_Edit
             textBoxName.Enabled = true;
             pictureBoxHDPI.Enabled = true;
             labelStatus.Enabled = true;
-            linkLabelBrowse.Enabled = true;
-            linkLabelBrowse.Visible = true;
-            
+            pictureBoxBrowse.Enabled = true;
+            pictureBoxBrowse.Visible = true;
+            pictureBoxTranslate.Enabled = true;
+            pictureBoxTranslate.Visible = true;
         }
 
         private void DisableUI()
@@ -140,8 +141,10 @@ namespace APK_Edit
             textBoxName.Enabled = false;
             pictureBoxHDPI.Enabled = false;
             labelStatus.Enabled = false;
-            linkLabelBrowse.Enabled = false;
-            linkLabelBrowse.Visible = false;
+            pictureBoxBrowse.Enabled = false;
+            pictureBoxBrowse.Visible = false;
+            pictureBoxTranslate.Enabled = false;
+            pictureBoxTranslate.Visible = false;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -170,11 +173,6 @@ namespace APK_Edit
             }
         }
 
-        private void linkLabelBrowse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("explorer.exe", ApkFile.TempPath);
-        }
-
         private void pictureBoxSettings_Click(object sender, EventArgs e)
         {
             frmOptions frm = new frmOptions();
@@ -186,5 +184,17 @@ namespace APK_Edit
                 this.apkFile.CreateSeperateSigningFile = AppSettings.CreateSeperateSigningFile;
             }
         }
+
+        private void pictureBoxBrowse_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", ApkFile.TempPath);
+        }
+
+        private void pictureBoxTranslate_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Language");
+        }
+
+
     }
 }

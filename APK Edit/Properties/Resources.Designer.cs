@@ -60,6 +60,13 @@ namespace APK_Edit.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Browse_16 {
+            get {
+                object obj = ResourceManager.GetObject("Browse_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FileWarning_128 {
             get {
                 object obj = ResourceManager.GetObject("FileWarning_128", resourceCulture);
@@ -74,9 +81,16 @@ namespace APK_Edit.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Setting_32 {
+        internal static System.Drawing.Bitmap Settings_16 {
             get {
-                object obj = ResourceManager.GetObject("Setting_32", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Translate_16 {
+            get {
+                object obj = ResourceManager.GetObject("Translate_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

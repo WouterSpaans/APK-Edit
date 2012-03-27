@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
-            this.linkLabelBrowse = new System.Windows.Forms.LinkLabel();
             this.labelStatus = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelIcons = new System.Windows.Forms.Label();
@@ -47,12 +47,17 @@
             this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
             this.pictureBoxHDPI = new System.Windows.Forms.PictureBox();
             this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTranslate = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBrowse = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTranslate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrowse)).BeginInit();
             this.SuspendLayout();
             // 
             // btnApply
@@ -107,7 +112,9 @@
             // 
             // tabPageGeneral
             // 
-            this.tabPageGeneral.Controls.Add(this.linkLabelBrowse);
+            this.tabPageGeneral.Controls.Add(this.pictureBoxBrowse);
+            this.tabPageGeneral.Controls.Add(this.pictureBoxTranslate);
+            this.tabPageGeneral.Controls.Add(this.pictureBoxSettings);
             this.tabPageGeneral.Controls.Add(this.pictureBoxStatus);
             this.tabPageGeneral.Controls.Add(this.labelStatus);
             this.tabPageGeneral.Controls.Add(this.pictureBoxHDPI);
@@ -121,23 +128,6 @@
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
-            // 
-            // linkLabelBrowse
-            // 
-            this.linkLabelBrowse.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.linkLabelBrowse.AutoSize = true;
-            this.linkLabelBrowse.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.linkLabelBrowse.Enabled = false;
-            this.linkLabelBrowse.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabelBrowse.LinkArea = new System.Windows.Forms.LinkArea(0, 6);
-            this.linkLabelBrowse.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.linkLabelBrowse.Location = new System.Drawing.Point(282, 381);
-            this.linkLabelBrowse.Name = "linkLabelBrowse";
-            this.linkLabelBrowse.Size = new System.Drawing.Size(42, 13);
-            this.linkLabelBrowse.TabIndex = 22;
-            this.linkLabelBrowse.TabStop = true;
-            this.linkLabelBrowse.Text = "Browse";
-            this.linkLabelBrowse.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBrowse_LinkClicked);
             // 
             // labelStatus
             // 
@@ -177,7 +167,6 @@
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Controls.Add(this.pictureBoxSettings);
             this.tabPageDetails.Controls.Add(this.labelApkToolVersion);
             this.tabPageDetails.Controls.Add(this.labelApkToolVersionLabel);
             this.tabPageDetails.Location = new System.Drawing.Point(4, 22);
@@ -236,13 +225,42 @@
             // 
             // pictureBoxSettings
             // 
-            this.pictureBoxSettings.Image = global::APK_Edit.Properties.Resources.Setting_32;
-            this.pictureBoxSettings.Location = new System.Drawing.Point(286, 362);
+            this.pictureBoxSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxSettings.Image = global::APK_Edit.Properties.Resources.Settings_16;
+            this.pictureBoxSettings.Location = new System.Drawing.Point(309, 376);
             this.pictureBoxSettings.Name = "pictureBoxSettings";
-            this.pictureBoxSettings.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxSettings.TabIndex = 4;
+            this.pictureBoxSettings.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSettings.TabIndex = 27;
             this.pictureBoxSettings.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxSettings, "Settings");
             this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
+            // 
+            // pictureBoxTranslate
+            // 
+            this.pictureBoxTranslate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxTranslate.Image = global::APK_Edit.Properties.Resources.Translate_16;
+            this.pictureBoxTranslate.Location = new System.Drawing.Point(287, 376);
+            this.pictureBoxTranslate.Name = "pictureBoxTranslate";
+            this.pictureBoxTranslate.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxTranslate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxTranslate.TabIndex = 28;
+            this.pictureBoxTranslate.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxTranslate, "Translate");
+            this.pictureBoxTranslate.Click += new System.EventHandler(this.pictureBoxTranslate_Click);
+            // 
+            // pictureBoxBrowse
+            // 
+            this.pictureBoxBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxBrowse.Image = global::APK_Edit.Properties.Resources.Browse_16;
+            this.pictureBoxBrowse.Location = new System.Drawing.Point(265, 376);
+            this.pictureBoxBrowse.Name = "pictureBoxBrowse";
+            this.pictureBoxBrowse.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxBrowse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBrowse.TabIndex = 29;
+            this.pictureBoxBrowse.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxBrowse, "Browse");
+            this.pictureBoxBrowse.Click += new System.EventHandler(this.pictureBoxBrowse_Click);
             // 
             // frmMain
             // 
@@ -267,6 +285,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTranslate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrowse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,7 +309,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogFramework;
         private System.Windows.Forms.Label labelApkToolVersion;
         private System.Windows.Forms.Label labelApkToolVersionLabel;
-        private System.Windows.Forms.LinkLabel linkLabelBrowse;
         private System.Windows.Forms.PictureBox pictureBoxSettings;
+        private System.Windows.Forms.PictureBox pictureBoxBrowse;
+        private System.Windows.Forms.PictureBox pictureBoxTranslate;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

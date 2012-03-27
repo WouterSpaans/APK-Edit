@@ -435,7 +435,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:APK Edit"
         "ProductCode" = "8:{A64134A3-EC70-4984-8F36-3C3860F0F8BA}"
-        "PackageCode" = "8:{93603E71-9BCC-4F5D-A8DC-16671B4BD700}"
+        "PackageCode" = "8:{3359E838-095F-4CA4-8DC8-670527706E53}"
         "UpgradeCode" = "8:{E4027CB5-2AD2-4FB3-8D26-859496A7061B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

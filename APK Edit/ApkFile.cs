@@ -19,7 +19,6 @@
     {
         #region Constants and Fields
 
-        
         private static readonly string ManifestFileName = TempPath + @"\AndroidManifest.xml";
         private static readonly string ApkToolYmlFileName = TempPath + @"\apktool.yml";
         private static readonly string StringsFileName = TempPath + @"\res\values\strings.xml";
@@ -50,8 +49,6 @@
             this.fileInfo = OpenFile();
             this.aaptDump = Aapt.Dump(this.fileInfo);
             this.iconPath = TempPath + @"\" + this.aaptDump.application.icon.Replace('/', '\\');
-            
-            
         }
 
         ~ApkFile()
@@ -223,6 +220,8 @@
                 overWriteBackup = value;
             }
         }
+
+
 
         #endregion
 
