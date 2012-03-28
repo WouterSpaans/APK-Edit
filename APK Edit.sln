@@ -15,16 +15,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signapk", "Wrappers\Wrapper
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DDA2A4E6-0C41-49AA-98FB-D531896DCDD7}"
 	ProjectSection(SolutionItems) = preProject
+		Test Apk Files\com.htc.resources.apk = Test Apk Files\com.htc.resources.apk
+		Test Apk Files\com.htc.WeatherWidget.apk = Test Apk Files\com.htc.WeatherWidget.apk
 		README = README
 	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{D67F38D2-561C-4569-8D94-4BCBA803EE93}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -99,5 +97,9 @@ Global
 		{1AAC66A7-C638-4B71-8A56-8725216E075C} = {FA8A6A90-4F55-49E2-8C51-27373FAEA55F}
 		{0277F2C6-EF61-4EC7-A17C-8CD0663C0258} = {FA8A6A90-4F55-49E2-8C51-27373FAEA55F}
 		{D8A98AC9-5E23-4282-9237-9AF81B8488CE} = {FA8A6A90-4F55-49E2-8C51-27373FAEA55F}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
