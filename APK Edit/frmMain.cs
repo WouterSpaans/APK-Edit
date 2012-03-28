@@ -192,7 +192,11 @@ namespace APK_Edit
 
         private void pictureBoxTranslate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Language");
+            frmTranslate frm = new frmTranslate();
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                // Add new language xml
+            }
         }
 
 

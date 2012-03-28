@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="ApkFile.cs" />
     <Compile Include="AppSettings.cs" />
+    <Compile Include="frmAddTranslation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddTranslation.Designer.cs">
+      <DependentUpon>frmAddTranslation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,13 +69,25 @@
     <Compile Include="frmOptions.Designer.cs">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTranslate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTranslate.Designer.cs">
+      <DependentUpon>frmTranslate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAddTranslation.resx">
+      <DependentUpon>frmAddTranslation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTranslate.resx">
+      <DependentUpon>frmTranslate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +115,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Android.ico" />
+    <None Include="Resources\Add_20.png" />
+    <None Include="Resources\Add_16.png" />
+    <None Include="Resources\Add_Clicked_16.png" />
+    <None Include="Resources\Add_Hover_16.png" />
+    <None Include="Resources\Add_Normal_16.png" />
     <Content Include="Resources\Android.ico" />
     <None Include="Resources\Translate_16.png" />
     <None Include="Resources\Browse_16.png" />

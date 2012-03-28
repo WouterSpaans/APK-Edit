@@ -35,7 +35,12 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.pictureBoxBrowse = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTranslate = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
+            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
             this.labelStatus = new System.Windows.Forms.Label();
+            this.pictureBoxHDPI = new System.Windows.Forms.PictureBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelIcons = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -44,20 +49,15 @@
             this.labelApkToolVersionLabel = new System.Windows.Forms.Label();
             this.openFileDialogIcon = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogFramework = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
-            this.pictureBoxHDPI = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
-            this.pictureBoxTranslate = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBrowse = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
-            this.tabPageDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrowse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTranslate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTranslate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrowse)).BeginInit();
+            this.tabPageDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
@@ -99,9 +99,9 @@
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabPageGeneral);
             this.tabControlMain.Controls.Add(this.tabPageDetails);
             this.tabControlMain.Location = new System.Drawing.Point(7, 7);
@@ -129,6 +129,54 @@
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxBrowse
+            // 
+            this.pictureBoxBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxBrowse.Image = global::APK_Edit.Properties.Resources.Browse_16;
+            this.pictureBoxBrowse.Location = new System.Drawing.Point(265, 376);
+            this.pictureBoxBrowse.Name = "pictureBoxBrowse";
+            this.pictureBoxBrowse.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxBrowse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBrowse.TabIndex = 29;
+            this.pictureBoxBrowse.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxBrowse, "Browse");
+            this.pictureBoxBrowse.Click += new System.EventHandler(this.pictureBoxBrowse_Click);
+            // 
+            // pictureBoxTranslate
+            // 
+            this.pictureBoxTranslate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxTranslate.Image = global::APK_Edit.Properties.Resources.Translate_16;
+            this.pictureBoxTranslate.Location = new System.Drawing.Point(287, 376);
+            this.pictureBoxTranslate.Name = "pictureBoxTranslate";
+            this.pictureBoxTranslate.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxTranslate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxTranslate.TabIndex = 28;
+            this.pictureBoxTranslate.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxTranslate, "Edit Translations");
+            this.pictureBoxTranslate.Click += new System.EventHandler(this.pictureBoxTranslate_Click);
+            // 
+            // pictureBoxSettings
+            // 
+            this.pictureBoxSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxSettings.Image = global::APK_Edit.Properties.Resources.Settings_16;
+            this.pictureBoxSettings.Location = new System.Drawing.Point(309, 376);
+            this.pictureBoxSettings.Name = "pictureBoxSettings";
+            this.pictureBoxSettings.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSettings.TabIndex = 27;
+            this.pictureBoxSettings.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxSettings, "Settings");
+            this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
+            // 
+            // pictureBoxStatus
+            // 
+            this.pictureBoxStatus.Location = new System.Drawing.Point(131, 166);
+            this.pictureBoxStatus.Name = "pictureBoxStatus";
+            this.pictureBoxStatus.Size = new System.Drawing.Size(76, 76);
+            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxStatus.TabIndex = 25;
+            this.pictureBoxStatus.TabStop = false;
+            // 
             // labelStatus
             // 
             this.labelStatus.Location = new System.Drawing.Point(2, 250);
@@ -137,10 +185,20 @@
             this.labelStatus.TabIndex = 24;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBoxHDPI
+            // 
+            this.pictureBoxHDPI.Location = new System.Drawing.Point(50, 32);
+            this.pictureBoxHDPI.Name = "pictureBoxHDPI";
+            this.pictureBoxHDPI.Size = new System.Drawing.Size(76, 76);
+            this.pictureBoxHDPI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHDPI.TabIndex = 23;
+            this.pictureBoxHDPI.TabStop = false;
+            this.pictureBoxHDPI.Click += new System.EventHandler(this.pictureBoxHDPI_Click);
+            // 
             // textBoxName
             // 
-            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Enabled = false;
             this.textBoxName.Location = new System.Drawing.Point(50, 6);
             this.textBoxName.Name = "textBoxName";
@@ -204,64 +262,6 @@
             this.openFileDialogFramework.FileName = "Framework.apk";
             this.openFileDialogFramework.Filter = "Android framework files|*.apk";
             // 
-            // pictureBoxStatus
-            // 
-            this.pictureBoxStatus.Location = new System.Drawing.Point(131, 166);
-            this.pictureBoxStatus.Name = "pictureBoxStatus";
-            this.pictureBoxStatus.Size = new System.Drawing.Size(76, 76);
-            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxStatus.TabIndex = 25;
-            this.pictureBoxStatus.TabStop = false;
-            // 
-            // pictureBoxHDPI
-            // 
-            this.pictureBoxHDPI.Location = new System.Drawing.Point(50, 32);
-            this.pictureBoxHDPI.Name = "pictureBoxHDPI";
-            this.pictureBoxHDPI.Size = new System.Drawing.Size(76, 76);
-            this.pictureBoxHDPI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxHDPI.TabIndex = 23;
-            this.pictureBoxHDPI.TabStop = false;
-            this.pictureBoxHDPI.Click += new System.EventHandler(this.pictureBoxHDPI_Click);
-            // 
-            // pictureBoxSettings
-            // 
-            this.pictureBoxSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxSettings.Image = global::APK_Edit.Properties.Resources.Settings_16;
-            this.pictureBoxSettings.Location = new System.Drawing.Point(309, 376);
-            this.pictureBoxSettings.Name = "pictureBoxSettings";
-            this.pictureBoxSettings.Size = new System.Drawing.Size(16, 16);
-            this.pictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxSettings.TabIndex = 27;
-            this.pictureBoxSettings.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxSettings, "Settings");
-            this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
-            // 
-            // pictureBoxTranslate
-            // 
-            this.pictureBoxTranslate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxTranslate.Image = global::APK_Edit.Properties.Resources.Translate_16;
-            this.pictureBoxTranslate.Location = new System.Drawing.Point(287, 376);
-            this.pictureBoxTranslate.Name = "pictureBoxTranslate";
-            this.pictureBoxTranslate.Size = new System.Drawing.Size(16, 16);
-            this.pictureBoxTranslate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxTranslate.TabIndex = 28;
-            this.pictureBoxTranslate.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxTranslate, "Translate");
-            this.pictureBoxTranslate.Click += new System.EventHandler(this.pictureBoxTranslate_Click);
-            // 
-            // pictureBoxBrowse
-            // 
-            this.pictureBoxBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxBrowse.Image = global::APK_Edit.Properties.Resources.Browse_16;
-            this.pictureBoxBrowse.Location = new System.Drawing.Point(265, 376);
-            this.pictureBoxBrowse.Name = "pictureBoxBrowse";
-            this.pictureBoxBrowse.Size = new System.Drawing.Size(16, 16);
-            this.pictureBoxBrowse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBrowse.TabIndex = 29;
-            this.pictureBoxBrowse.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxBrowse, "Browse");
-            this.pictureBoxBrowse.Click += new System.EventHandler(this.pictureBoxBrowse_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,13 +280,13 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
-            this.tabPageDetails.ResumeLayout(false);
-            this.tabPageDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrowse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTranslate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHDPI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTranslate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrowse)).EndInit();
+            this.tabPageDetails.ResumeLayout(false);
+            this.tabPageDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
